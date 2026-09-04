@@ -1,0 +1,30 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+.DS_Store
+tmp/
+output/
+
+# Generated review aids and imagery can be large or contain expiring URLs.
+data/geocode_cache.json
+data/campus_review.html
+data/imagery/
+
+# Keep final audit tables; exclude raw responses, experiments, and logs.
+outputs/*
+
+!outputs/.gitkeep
+!outputs/run_diagnostics.csv
+!outputs/validation_observations.csv
+!outputs/validation_summary.csv
+!outputs/calibration_summary.csv
+!outputs/validation_overview.csv
+!outputs/validation_exclusions.csv
+!outputs/validation_review_summary.csv
+!outputs/validation_sample_summary.csv
+!outputs/scale_summary.txt

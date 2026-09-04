@@ -1,0 +1,16 @@
+Prototype scale summary
+=======================
+Schools processed: 25
+Median wall-clock seconds/school: 8.76
+Mean wall-clock seconds/school: 15.32
+130k schools, sequential at median: 13.2 days
+130k schools, idealized 50-way parallelism: 6.3 hours
+Schools flagged for review: 88.0%
+Mean prompt tokens/school: 8125
+Mean output tokens/school: 432
+Mean billable output tokens/school (including thinking when reported): 432
+130k requests at 500/day: at least 260.0 days before retries (account-specific quota)
+Mean estimated VLM cost/school: $0.002680
+Estimated VLM cost for 130,000 schools: $348.34
+
+Caveat: parallel estimate ignores API rate limits, retries, storage I/O, and manual QA.
