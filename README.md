@@ -8,8 +8,6 @@ time-boxed, auditable prototype: dated imagery and model outputs are preserved,
 uncertain cases are flagged, and accuracy and confidence are evaluated against
 manual labels.
 
-Recommended GitHub repository name: `school-facilities-cv-takehome`.
-
 ## Start here: choose what you want to reproduce
 
 The final measurements, reviewed campus locations, manual validation labels,
