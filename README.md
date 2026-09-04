@@ -196,8 +196,8 @@ the entire sample.
 
 If a USC-managed Google account says that AI Studio is unavailable, that access
 is controlled by the university's Google Workspace administrator. Use a
-personal Google account if permitted by the assignment and Google's terms, or
-ask the administrator for access. This repository does not require a USC-owned
+personal Google account, or ask the administrator for access. 
+This repository does not require a USC-owned
 key. Keep the key only in `.env`; `.env` is ignored by Git.
 
 The example file contains the Gemini 3.1 Flash-Lite standard paid token rates
