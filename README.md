@@ -4,9 +4,8 @@
 
 This repository measures rooftop solar, portable classrooms, perimeter
 fencing, and athletic facilities for 25 U.S. public schools. It is a
-time-boxed, auditable prototype: dated imagery and model outputs are preserved,
-uncertain cases are flagged, and accuracy and confidence are evaluated against
-manual labels.
+time-boxed prototype that preserves imagery dates and model outputs, flags
+uncertain cases, and compares accuracy and confidence with manual labels.
 
 ## Start here: choose what you want to reproduce
 
@@ -176,8 +175,8 @@ are evidence about this submission, not guarantees for new schools.
    review rule caught.
 
 Three seeded schools helped me improve the method, and I later inspected the
-other five during model comparisons. I therefore describe this as a development
-audit of the final submission, not an untouched test of future performance.
+other five during model comparisons. Because I saw those results, this audit
+checks the final submission but is not an independent test of future schools.
 
 The model receives only the dated aerial views and school metadata. Web search
 is not used during extraction because current web evidence can conflict with
@@ -383,11 +382,10 @@ match that success rate, and how many mistakes would its review flags catch?
 
 The eight seeded rows were selected before labeling and the initial predictions
 were saved. Three schools were used directly while improving the pipeline. I
-then examined mistakes across the other five during prompt/model testing, so
-the final run is a transparent development audit, not an independent estimate
-of nationwide accuracy. Once I opened those five predictions to understand
-their failures, they were no longer unseen examples; the result audits this
-artifact but does not estimate performance on future schools.
+then examined mistakes across the other five during prompt/model testing. Once
+I had seen those predictions, they could no longer serve as unseen examples.
+The results therefore check this submission but do not estimate nationwide
+accuracy.
 
 Google Maps/Street View helped with manual interpretation, but references that
 could not be aligned to the NAIP date are not placed in the primary score.
@@ -397,20 +395,20 @@ excluded: seven detached portable buildings are visible in its 2022 NAIP input,
 although low contrast makes the roof gaps difficult to see. The model's zero
 count is scored as a high-confidence error.
 
-The manual audit is a careful reference set, not perfect truth. For fencing I counted
-only visible physical fence, wall, or closable-gate segments; houses, vegetation,
-roads, and open space may define an edge but are not fencing. Street View does
-not cover every side of a campus, so an unseen segment cannot support a strong
-`none` or `full` label. For portables, the unit is a distinct detached building,
-not every classroom or roof bay. When aerial seams could mean either separate
-buildings or joined modules, the label is provisional or blank rather than
-treated as certain.
+The manual reference labels are careful but not perfect. For fencing I counted
+only visible physical fence, wall, or closable-gate segments; houses,
+vegetation, roads, and open space may define an edge but are not fencing.
+Street View does not cover every side of a campus, so an unseen segment cannot
+support a strong `none` or `full` label. For portables, the unit is a distinct
+detached building, not every classroom or roof bay. When aerial seams could
+mean either separate buildings or joined modules, I left the label provisional
+or blank.
 
-The optional two-date attribute is not claimed. Bertha and Pittsburgh suggest
-solar changed after the dated NAIP acquisition, but the Google aerial dates are
-not known precisely enough to satisfy the requirement to name both dates. A
-defensible extension would compare two dated NAIP acquisitions or dated
-historical Street View observations.
+I did not complete the optional two-date measurement. Bertha and Pittsburgh
+suggest that solar changed after the dated NAIP acquisition, but the Google
+aerial dates are not precise enough to name two observation dates. With more
+time, I would compare two dated NAIP acquisitions or dated historical Street
+View observations.
 
 ### How to read the validation output
 
@@ -443,8 +441,7 @@ submitted run; `outputs/measurements.csv` means a newly generated Gemini run.
   manual label match exactly. Counts also report mean absolute error.
 - Solar area is evaluated only for a date-compatible positive label and counts
   as correct when relative error is at most 25%. No current positive area label
-  is precise enough for that test, so the pipeline does not invent an area
-  accuracy result.
+  is precise enough for that test, so I do not report an area-accuracy number.
 - Each scored field becomes `correct=1` or `correct=0`. Accuracy is the number
   correct divided by the number scored. An `unmeasurable` prediction still
   counts as wrong when the manual reference contains an answer, so abstaining
@@ -465,7 +462,7 @@ submitted run; `outputs/measurements.csv` means a newly generated Gemini run.
 
 `measurements.csv` contains every requested value, its confidence, the imagery
 date, a `review_required` flag, and failure notes. The four confidence bands are
-transparent evidence categories, not fitted probabilities.
+rules based on visible evidence, not fitted probabilities.
 Coverage defects are combined before applying a penalty so the same missing
 image region is not counted several times.
 
@@ -483,8 +480,8 @@ Quality-control rules include:
   shared surfaces create counting ambiguity;
 - ambiguous campus boundaries reduce ownership-dependent measurements.
 
-The final run's school-level `review_required` rate is 88%. It is intentionally
-conservative and shows that the prototype is not ready for unattended national
+The final run's school-level `review_required` rate is 88%. It is conservative
+and shows that the prototype is not ready for unattended national
 deployment. The validation table also evaluates field-level thresholds because
 reviewing one weak fence should not force a reviewer to recheck an obvious pool.
 
@@ -570,17 +567,17 @@ result exactly; a fresh API run may differ even with the same model and prompt.
   estimated panel-coverage calculation converted with the saved pixel scale,
   not a model-supplied square-meter guess. Manual ruler
   measurements are still rough when arrays are irregular, and no area result
-  has earned calibrated confidence above the review band. On date-compatible presence
+  is supported strongly enough to avoid review. On date-compatible presence
   labels the model was 7/7, including Spring Lake as the only positive. That is
-  too small to show reliable detection of positive cases, and no positive area label
-  was precise enough to score. The Bertha/Pittsburgh current-reference misses
-  remain visible as temporal stress tests.
+  too small to show reliable detection of positive cases, and no positive area
+  label was precise enough to score. The Bertha/Pittsburgh current-reference
+  misses remain visible as checks of change over time.
 - **Imagery:** NAIP vintages vary; Ridgeview Elementary used a 2017 acquisition
   and is explicitly flagged as stale.
 - **Hosted VLM:** observed failures included transient 503 responses, variable
   latency, occasional truncated structured output, run-to-run variation, and
-  free-tier 429 quota exhaustion. Retries and per-school failure rows keep the
-  batch auditable instead of silently dropping schools.
+  free-tier 429 quota exhaustion. Retries and per-school failure rows keep
+  failures visible instead of silently dropping schools.
 
 ## What I would do with 100 hours
 

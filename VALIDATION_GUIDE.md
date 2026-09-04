@@ -30,7 +30,7 @@ Record one of these boundary judgments in the note:
 - `boundary low`: the target extent cannot be separated defensibly.
 
 The pipeline crop is a center plus a square radius; it is not a parcel polygon.
-That is an explicit prototype limitation, not something the labels should hide.
+Record that limitation instead of making the labels appear more certain.
 
 ## 2. Label perimeter fencing
 
@@ -91,9 +91,9 @@ portable detection needs more positive examples.
 The original sample has eight schools and the submitted audit has nine. Wells,
 Beverly Hills, and Cerra Vista were used directly while improving the method.
 The other five seeded predictions were later opened during failure analysis and
-model comparison. Therefore this is a transparent development audit, not an
-unseen test set or an unbiased estimate for all U.S. schools. Do not call
-unresolved cells errors or silently drop them: evaluation is conditional on
+model comparison. Because I saw those results, they are not an unseen test set,
+and this small audit does not estimate accuracy for all U.S. schools. Do not
+call unresolved cells errors or silently drop them: evaluation is limited to
 observable, date-compatible labels.
 
 After labeling, run:
