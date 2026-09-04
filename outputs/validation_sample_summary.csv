@@ -1,3 +1,3 @@
 sample_role,schools,scored_observations,excluded_reference_comparisons,exact_accuracy,mean_confidence,calibration_gap_conf_minus_accuracy,brier_score_for_correctness
-seeded_random,8,58,5,0.6896551724137931,0.703448275862069,0.01379310344827589,0.10172413793103449
+seeded_random,8,59,4,0.6779661016949152,0.7067796610169493,0.02881355932203411,0.11372881355932205
 targeted_solar_challenge,1,8,1,0.625,0.6625000000000001,0.03750000000000009,0.10875000000000001

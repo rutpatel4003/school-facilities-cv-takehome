@@ -1,17 +1,14 @@
 # Validation guide
 
-This protocol is intentionally conservative. A blank ground-truth cell is a
-valid result when the saved imagery cannot support a label; it is better than a
-guess. Use the model predictions only after you finish a school's labels so the
-model does not anchor your judgment.
+Leave a ground-truth cell blank when the available evidence cannot support an
+answer. Finish a school's labels before viewing its predictions so the model
+does not influence the manual judgment.
 
 Every scored label must describe the facilities visible on the prediction
-row's `imagery_date`. Current or undated web/Google Maps imagery may document a
-later change, but it must not overwrite a historical NAIP label. If such a
-comparison is useful as a stress test, retain its value, list the field in
-`excluded_fields` (semicolon-separated), and explain why in
-`evaluation_exclusion_reason`. The evaluator saves these rows separately rather
-than silently discarding them.
+row's `imagery_date`. Newer or undated Google imagery may show that a facility
+changed, but it should not be used to mark an older NAIP prediction wrong. Keep
+such comparisons in `excluded_fields` and explain the date mismatch; the
+evaluator reports them separately.
 
 ## 1. Define the campus before labeling facilities
 
@@ -82,13 +79,12 @@ Spring Lake's solar presence is scored. Its 1,800 m2 area is retained but
 excluded because it is a rough visual estimate without a ruler or polygon and
 cannot fairly support a 25% error tolerance.
 
-Cerra Vista has a provisional value of seven portable structures based on five
-roof-separated rectangles along the north edge and two near the center in
-current/undated Google imagery. It is retained in the label file but excluded
-from the primary score: the source is not date-matched to the 2022 NAIP input,
-and the visible seams may divide modules rather than distinct buildings. This
-keeps the possible model miss visible without presenting uncertain evidence as
-ground truth.
+Cerra Vista has seven detached portable buildings in the dated 2022 NAIP image:
+five along the north edge and two near the center. Low contrast makes the roof
+gaps difficult to see, but the seven footprints are visible; current Google
+imagery shows the same arrangement. The label is therefore scored. The model's
+prediction of zero is a high-confidence error and is important evidence that
+portable detection needs more positive examples.
 
 ## 5. Keep the validation claim modest
 
@@ -106,11 +102,21 @@ After labeling, run:
 python run.py validate --development-school-id 060001909278 --development-school-id 060483000471 --development-school-id 061734009378
 ```
 
-Use `validation_overview.csv` for accuracy, Brier score, fixed-band expected
-and maximum calibration error; `calibration_summary.csv` for each confidence
-band and its contributing-school count;
-`validation_sample_summary.csv` for seeded versus targeted results,
-`validation_summary.csv` for field results and positive/negative or
-zero/nonzero label support; `validation_review_summary.csv` for flag recall,
-workload, and accuracy among unflagged fields; and
-`validation_exclusions.csv` for every retained but unscored comparison.
+The output files answer different questions:
+
+- `validation_observations.csv`: every prediction-label comparison and whether
+  it was correct;
+- `validation_summary.csv`: accuracy and count error for each field;
+- `calibration_summary.csv`: whether answers labeled 0.9, 0.7, 0.4, or 0.1 were
+  actually correct at about those rates;
+- `validation_overview.csv`: overall accuracy plus ECE and Brier score. ECE
+  summarizes confidence-band gaps; Brier score penalizes confident mistakes;
+- `validation_review_summary.csv`: how many fields a rule sends to a person,
+  how many errors it catches, and accuracy among fields left automatic;
+- `validation_sample_summary.csv`: seeded rows versus the added solar case;
+- `validation_exclusions.csv`: date-mismatched or insufficiently precise
+  references that are disclosed but not scored.
+
+The per-band counts are the easiest calibration result to interpret. ECE and
+Brier score are included as compact standard summaries, not as replacements for
+those counts.

@@ -13,6 +13,7 @@ school_id,school_name,evaluation_split,sample_role,field,prediction,truth,correc
 060483000471,Beverly Hills High,development,seeded_random,track_present,True,True,1,0.9,True,,
 060483000471,Beverly Hills High,development,seeded_random,sports_fields_count,1,1,1,0.7,True,0.0,
 061734009378,Cerra Vista Elementary,development,seeded_random,solar_present,False,False,1,0.9,False,,
+061734009378,Cerra Vista Elementary,development,seeded_random,portable_count,0,7,0,0.9,False,7.0,
 061734009378,Cerra Vista Elementary,development,seeded_random,fence_extent,full,full,1,0.9,False,,
 061734009378,Cerra Vista Elementary,development,seeded_random,fence_type,chain-link,chain-link,1,0.7,False,,
 061734009378,Cerra Vista Elementary,development,seeded_random,track_present,False,False,1,0.9,False,,

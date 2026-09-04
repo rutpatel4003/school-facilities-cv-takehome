@@ -37,89 +37,100 @@ school level. I later added Spring Lake Heights on purpose as a ninth,
 solar-positive challenge case; it is reported separately so it is not mistaken
 for a random draw.
 
-| Validation group | Schools | Scored comparisons | Excluded references | Exact accuracy | Mean confidence | Confidence - accuracy | Brier score |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Seeded sample | 8 | 58 | 5 | 69.0% | 70.3% | +1.4 pp | 0.102 |
-| Added solar challenge | 1 | 8 | 1 | 62.5% | 66.3% | +3.8 pp | 0.109 |
-| All audited schools | 9 | 66 | 6 | 68.2% | 69.8% | +1.7 pp | 0.103 |
+| Validation group | Schools | Scored fields | Excluded fields | Exact accuracy | Mean confidence | Brier score (lower is better) |
+|---|---:|---:|---:|---:|---:|---:|
+| Seeded sample | 8 | 59 | 4 | 67.8% | 70.7% | 0.114 |
+| Added solar challenge | 1 | 8 | 1 | 62.5% | 66.3% | 0.109 |
+| All audited schools | 9 | 67 | 5 | 67.2% | 70.1% | 0.113 |
 
-The six excluded comparisons are still written to
-`outputs/validation_exclusions.csv`. Bertha and Pittsburgh each contribute a
-solar-presence and solar-area comparison from newer or undated Google imagery
-against 2023/2022 NAIP inputs. Spring Lake's presence is visible in the NAIP
-input and is scored, but its rough 1,800 m2 visual area estimate is not precise
-enough to judge with a 25% tolerance. Cerra Vista has a provisional count of
-seven roof-separated portable structures in current/undated Google imagery,
-but it is not date-matched to the 2022 NAIP input and the seams may separate
-modules rather than buildings; that comparison is also retained only as a
-stress test. Reporting both the scored audit and these observations avoids
-either mixing dates or hiding difficult cases.
+Accuracy is simply the number of exact matches divided by the number of fields
+that could be judged: 45/67. The five excluded comparisons are still listed in
+`outputs/validation_exclusions.csv`. Four compare current or undated Google
+solar observations with older NAIP inputs at Bertha and Pittsburgh. Spring
+Lake's solar presence is scored, but its rough 1,800 m2 area estimate is not
+precise enough for a 25% error test.
 
-Calibration was much more informative than the pooled accuracy. The 0.9 band
-was correct on 30/31 fields (96.8%), the 0.7 band on 15/22 (68.2%), and every
-0.4/0.1 field was wrong (0/13). Thus the evidence bands correctly ranked risk,
-and overall mean confidence was within 1.7 percentage points of accuracy. That
-pooled gap can hide opposite errors across bands, so I also report fixed-band
-expected calibration error (8.0 percentage points), maximum band error (40.0
-points in the five-item 0.4 band), Brier score (0.103), and the number of
-schools contributing to each band. The sample is small, several fields from one
-school are related, and one 0.9 track prediction was wrong; these are evidence
-bands, not certified probabilities.
+Cerra Vista's seven portable buildings are visible in the same 2022 NAIP image
+used by the model: five along the north edge and two near the center. Low
+contrast makes the roof gaps easy to miss. The prediction of zero is therefore
+counted as an error, not excluded. Portable count is now 8/9 overall, but the
+only positive example is this missed case.
 
-Fencing was the main failure. Fence extent was correct on 3/9 schools and type
-on 2/9; together they caused 13 of 21 scored errors. All 13 fence errors had
-confidence 0.4 or 0.1, exactly where the pipeline said the imagery was weak.
-Without the two fence fields, accuracy was 40/48 (83.3%). This does not justify
-dropping fencing; it justifies returning it for higher-resolution or
-street-level review instead of inventing certainty from thin overhead lines.
+### What the confidence numbers say
 
-The revised school-level flag marks 7/9 audit schools and captures 20/21
-errors while sending 52/66 fields to review; it now treats an unobservable
-fence type as a reason for review. A field-level rule of reviewing confidence
-<= 0.7 captures 20/21 errors while reviewing 35/66 fields (53.0%); the 31
-fields left automatic are 30/31 correct (96.8%). The strict 0.4/0.1 queue
-reviews only 13/66 fields, all 13 are errors, and the remaining 53 fields are
-45/53 correct (84.9%). These trade-offs are saved in
-`outputs/validation_review_summary.csv`; they make the amount of human review
-explicit rather than reporting accuracy alone. These thresholds are described
-on the same development audit and are not yet out-of-sample service guarantees.
+A confidence of 0.9 is meant to say, “answers like this should be correct about
+90% of the time.” I compared that promise with what actually happened:
+
+- 0.9 confidence: 30/32 correct (93.8%);
+- 0.7 confidence: 15/22 correct (68.2%);
+- 0.4 or 0.1 confidence: 0/13 correct.
+
+**Interpretation:** the 0.9 and 0.7 bands were close to their stated success
+rates, while the 0.4 band was overconfident because none of its five answers
+was correct. The bands rank risk usefully, but they are not yet fully calibrated
+probabilities.
+
+The bands generally put the riskiest answers at the bottom, but they were not
+perfect: the 0.9 Cerra Vista portable answer and one 0.9 track answer were
+wrong. Overall confidence was 70.1% while accuracy was 67.2%.
+
+I also report two standard summaries because the overall averages can hide a
+bad confidence band. Expected calibration error (ECE) is the average gap
+between promised confidence and actual accuracy across the four bands; it is
+6.6 percentage points. The Brier score averages the squared difference between
+each confidence and whether that answer was right; it is 0.113, and lower is
+better. The largest single-band gap is 40 points in the 0.4 band. These names
+are useful shorthand, but the per-band counts above are the clearest result.
+
+Fencing was the main failure. Fence extent was correct for 3/9 schools and type
+for 2/9, accounting for 13 of 22 errors. All 13 fence errors had confidence 0.4
+or 0.1, so the pipeline correctly recognized that overhead fence evidence was
+weak. Without the two fence fields, accuracy was 40/49 (81.6%).
+
+### What I would send to a person for review
+
+If every field with confidence 0.7 or lower is reviewed, a person checks 35/67
+fields and sees 20/22 errors. Of the 32 fields left automatic, 30 are correct
+(93.8%). A smaller queue containing only 0.4/0.1 fields checks 13/67 fields;
+all 13 are errors, but it misses nine other errors. The existing school-level
+flag also catches 20/22 errors but sends 52/67 fields for review, so field-level
+flags are more efficient.
+
+These numbers explain the practical trade-off: a larger review queue catches
+more mistakes. They were measured on the same small development audit, so they
+are evidence about this submission, not guarantees for new schools.
 
 ## Method and design reasoning
 
-1. **Resolve the campus before measuring it.** A CCD point is a useful seed,
-   not a parcel boundary. I generated a second geocoded candidate, opened the
-   map/aerial links for every school, and chose a center and crop radius. This
-   prevents a plausible-looking extraction from silently measuring the wrong
-   campus, although a reviewed square is still weaker than a true polygon.
-2. **Use dated, reproducible imagery.** I query NAIP through the Microsoft
-   Planetary Computer STAC catalog and retain the acquisition date, item ID,
-   CRS, transform, pixel area, crop extent, and coverage diagnostics. NAIP is
-   older than consumer maps in some places, but its date and provenance make
-   temporal claims auditable.
-3. **Give the model both context and detail within one request.** Each campus
-   becomes a full overview, centered 70% crop, and four overlapping quadrants.
-   The overview supports campus-level reasoning; detail crops help with small
-   objects. Sending all six together avoids six independent answers and stays
-   within the free-tier request budget.
-4. **Constrain extraction rather than accepting free text.** Gemini returns a
-   typed schema with evidence. The prompt distinguishes rooftop panels from
-   canopies/ground arrays and permanent buildings from portables. Solar area is
-   calculated from localized image boxes and georeferenced pixel area, not an
-   unsupported verbal estimate.
-5. **Make uncertainty operational.** Deterministic checks combine crop
-   coverage, edge visibility, boundary ambiguity, attribute observability, and
-   internal inconsistencies into four evidence bands (0.9/0.7/0.4/0.1).
-   Ambiguous fields and any positive solar case are routed to review. These are
-   transparent pre-validation bands, not learned probabilities.
-6. **Evaluate without overstating independence.** A fixed seed selected eight
-   schools by level (3 primary, 2 middle, 3 high). I saved the initial
-   predictions, labeled observable fields, and used three schools while
-   improving the method. I later inspected errors across the other five while
-   comparing prompts and models, so none of the final eight-school results is
-   claimed as an unseen test set. Spring Lake was then added deliberately to
-   test a visible solar-positive case. The evaluator keeps that role explicit
-   and reports accuracy, count error, binary-class coverage, calibration, and
-   review burden.
+1. **Confirm which campus is being measured.** The supplied CCD coordinate is a
+   starting point, not a school boundary. I compared it with a geocoded option,
+   opened both map links for every school, and selected the center and crop size.
+   This reduces the chance of measuring a neighboring park or school.
+2. **Use imagery with a known date.** I download NAIP imagery through Microsoft
+   Planetary Computer and save its date, source item, crop, and pixel scale.
+   NAIP is sometimes older than Google imagery, but its date lets another person
+   understand exactly what the prediction refers to.
+3. **Show both the whole campus and small details.** One request contains the
+   full image, a centered close-up, and four overlapping sections. The full view
+   gives boundary context; the closer views make small objects easier to see.
+4. **Ask for structured answers.** Gemini must return the requested fields and
+   short visual evidence instead of unrestricted prose. The prompt separates
+   rooftop panels from solar carports and detached portables from permanent
+   buildings. Code converts solar image boxes to square meters using the saved
+   pixel scale.
+5. **Turn uncertainty into a review decision.** Each field receives one of four
+   confidence levels. Missing edges, unclear campus ownership, weak visibility,
+   or contradictory answers lower confidence. Weak fields are sent to a person
+   instead of being silently accepted.
+6. **Check the claims against manual labels.** Eight schools were selected with
+   a fixed seed across school levels, and Spring Lake was added as a clearly
+   disclosed solar-positive challenge. I compare exact answers, count errors,
+   whether confidence matched actual correctness, and how many mistakes each
+   review rule caught.
+
+Three seeded schools helped me improve the method, and I later inspected the
+other five during model comparisons. I therefore describe this as a development
+audit of the final submission, not an untouched test of future performance.
 
 The model receives only the dated aerial views and school metadata. Web search
 is not used during extraction because current web evidence can conflict with
@@ -176,6 +187,19 @@ GEMINI_MODEL=gemini-3.1-flash-lite
 SCHOOL_CV_USER_AGENT=SchoolFacilitiesCVTakeHome/0.1 (contact: YOUR_EMAIL)
 ```
 
+For this 25-school sample, a qualifying Gemini free-tier key is sufficient: the
+pipeline makes one model request per school, plus any retries. Sign in to
+[Google AI Studio](https://aistudio.google.com/apikey) and create or copy an API
+key; billing is not required for models available on the free tier. Quotas are
+account- and model-specific, so check AI Studio's Usage page before rerunning
+the entire sample.
+
+If a USC-managed Google account says that AI Studio is unavailable, that access
+is controlled by the university's Google Workspace administrator. Use a
+personal Google account if permitted by the assignment and Google's terms, or
+ask the administrator for access. This repository does not require a USC-owned
+key. Keep the key only in `.env`; `.env` is ignored by Git.
+
 The example file contains the Gemini 3.1 Flash-Lite standard paid token rates
 available on 2026-09-03. Verify them against the
 [current official pricing page](https://ai.google.dev/gemini-api/docs/pricing)
@@ -217,8 +241,8 @@ python run.py fetch-imagery
 ```
 
 Each school receives `overview.png` plus metadata containing the acquisition
-date, STAC item, CRS, affine transform, pixel area, crop extent, and coverage
-diagnostics. Files are written under `data/imagery/` and ignored by Git.
+date, source item, map coordinates, pixel scale, crop extent, and image coverage.
+Files are written under `data/imagery/` and ignored by Git.
 
 ### 4. Test file flow without an API call
 
@@ -303,9 +327,9 @@ committed `data/validation_labels.csv`.
 
 I hand-labeled only fields with supporting evidence and left unresolved cells
 blank. Counts and categories require exact agreement; positive solar area is
-correct within 25% relative error. The evaluator reports correctness within
-each confidence band, confidence minus accuracy, Brier score, and the error
-recall/review burden of three flagging policies.
+correct when it is within 25% of a reliable manual measurement. The evaluator
+then answers three questions: how often was the model right, did its confidence
+match that success rate, and how many mistakes would its review flags catch?
 
 The eight seeded rows were selected before labeling and the initial predictions
 were saved. Three schools were used directly while improving the pipeline. I
@@ -318,12 +342,12 @@ artifact but does not estimate performance on future schools.
 Google Maps/Street View helped with manual interpretation, but references that
 could not be aligned to the NAIP date are not placed in the primary score.
 Bertha and Pittsburgh current/undated solar observations, Spring Lake's rough
-area estimate, and Cerra Vista's provisional seven-portable count remain
-visible in `validation_exclusions.csv`. This exclusion rule was added after the
-mismatch was noticed, so both the exclusions and their values are reported
-rather than being silently removed.
+area estimate remain visible in `validation_exclusions.csv`. Cerra Vista is not
+excluded: seven detached portable buildings are visible in its 2022 NAIP input,
+although low contrast makes the roof gaps difficult to see. The model's zero
+count is scored as a high-confidence error.
 
-The manual audit is a reference set, not perfect truth. For fencing I counted
+The manual audit is a careful reference set, not perfect truth. For fencing I counted
 only visible physical fence, wall, or closable-gate segments; houses, vegetation,
 roads, and open space may define an edge but are not fencing. Street View does
 not cover every side of a campus, so an unseen segment cannot support a strong
@@ -338,7 +362,7 @@ not known precisely enough to satisfy the requirement to name both dates. A
 defensible extension would compare two dated NAIP acquisitions or dated
 historical Street View observations.
 
-### How validation and calibration are calculated
+### How validation, confidence, and review flags are calculated
 
 - Boolean, category, and count fields are correct only when prediction and
   manual label match exactly. Counts also report mean absolute error.
@@ -346,22 +370,21 @@ historical Street View observations.
   as correct when relative error is at most 25%. No current positive area label
   is precise enough for that test, so the pipeline does not invent an area
   accuracy result.
-- Each scored field becomes `correct=1` or `correct=0`. Within a confidence
-  band, observed accuracy is the mean of that indicator. An `unmeasurable`
-  prediction is counted as incorrect against a filled reference; abstention is
-  therefore not used to inflate accuracy.
-- `confidence - accuracy` is positive when the model promises more than it
-  delivers and negative when it is conservative. The Brier score is the mean
-  of `(confidence - correct)^2`; lower is better and confident mistakes are
-  penalized most. Fixed-band expected calibration error is the count-weighted
-  absolute gap across the four predeclared bands; maximum calibration error is
-  the largest band gap. These complement, rather than replace, the per-band
-  table because a small pooled mean gap can cancel over- and under-confidence.
-- A flagging policy is useful only if it catches errors without reviewing
-  everything. `validation_review_summary.csv` therefore reports error recall
-  (`caught errors / all errors`), review workload (`flagged / scored fields`),
-  review precision (`caught errors / flagged fields`), and accuracy/coverage
-  among the fields left automatic.
+- Each scored field becomes `correct=1` or `correct=0`. Accuracy is the number
+  correct divided by the number scored. An `unmeasurable` prediction still
+  counts as wrong when the manual reference contains an answer, so abstaining
+  cannot make the score look better.
+- Confidence is checked by group. If 0.9 is meaningful, roughly 90% of the
+  0.9 answers should be correct. The per-band table is the main result because
+  it shows directly where confidence was honest or misleading.
+- ECE summarizes the average absolute gap between each confidence band and its
+  actual accuracy. Brier score averages `(confidence - correct)^2`, so a highly
+  confident mistake receives a larger penalty. I include both because mean
+  confidence can look close to mean accuracy even when individual bands are
+  wrong in opposite directions.
+- A review flag is useful when it catches many errors without asking a person
+  to check everything. The review summary therefore reports fields sent to
+  review, errors caught, and accuracy among the fields left automatic.
 
 ## Outputs and confidence
 
@@ -449,8 +472,9 @@ result exactly; a fresh API run may differ even with the same model and prompt.
 
 - **Campus attribution:** a center plus square crop is not a parcel polygon;
   nearby parks, schools, and shared athletic facilities can be misattributed.
-- **Fencing:** extent and especially material are poorly observed from nadir
-  imagery: thin lines can be sub-pixel, trees and shadows interrupt them, and a
+- **Fencing:** extent and especially material are hard to judge from overhead
+  imagery: fence lines can be too thin for the image resolution, trees and
+  shadows interrupt them, and a
   top-down view often cannot distinguish chain-link from other metal fencing.
   Street View is incomplete around many campuses, and a house, hedge, road, or
   other natural/land-use boundary is not itself a fence. Even the manual labels
@@ -461,19 +485,19 @@ result exactly; a fresh API run may differ even with the same model and prompt.
   evidence of absence.
 - **Portables and other counts:** a detached portable building can contain
   several classrooms or joined factory-built modules; roof seams do not prove
-  separate buildings, and permanent annexes/storage can look similar. All eight
-  date-compatible portable references in the scored audit are zero, so 8/8
-  exact accuracy tests only absence and says nothing reliable about positive
-  detection. Cerra Vista's provisional positive count is disclosed but excluded
-  for date/definition uncertainty. Small courts, overlapping markings, shared
-  outfields, and tree cover also caused under- and over-counts.
+  separate buildings, and permanent annexes/storage can look similar. Cerra
+  Vista is the audit's one positive case: the seven buildings appear in the
+  2022 NAIP image, but the model reported zero with 0.9 confidence. The other
+  eight portable labels are zero, so portable accuracy is 8/9 while positive
+  detection is 0/1. More positive examples are needed. Small courts,
+  overlapping markings, shared outfields, and tree cover also caused errors.
 - **Solar:** canopies can resemble rooftop arrays. Area is a bounding-box and
-  fill-fraction estimate multiplied by georeferenced overview-pixel area, not a
-  random model-supplied square-meter number or panel segmentation. Manual ruler
+  estimated panel-coverage calculation converted with the saved pixel scale,
+  not a model-supplied square-meter guess. Manual ruler
   measurements are still rough when arrays are irregular, and no area result
   has earned calibrated confidence above the review band. On date-compatible presence
   labels the model was 7/7, including Spring Lake as the only positive. That is
-  too small to establish reliable positive recall, and no positive area label
+  too small to show reliable detection of positive cases, and no positive area label
   was precise enough to score. The Bertha/Pittsburgh current-reference misses
   remain visible as temporal stress tests.
 - **Imagery:** NAIP vintages vary; Ridgeview Elementary used a 2017 acquisition
@@ -485,36 +509,34 @@ result exactly; a fresh API run may differ even with the same model and prompt.
 
 ## What I would do with 100 hours
 
-1. **Campus geometry and imagery registry - 25 hours.** Build candidate campus
-   polygons by combining school points, OSM/Overture land-use and building
-   features, roads, parcels where openly licensed, and local education GIS
-   layers (Overpass/OSMnx, Overture Maps, Microsoft Building Footprints,
-   PostGIS/QGIS). Score connected buildings and playing areas, then review only
-   disagreements in a small map UI. Store imagery item IDs and requested years
-   so every prediction has a spatial and temporal boundary.
-2. **A real benchmark - 25 hours.** Label 500-1,000 schools stratified by
-   region, school level, rurality, imagery vintage, and campus complexity;
-   deliberately oversample positive solar, portables, pools, and each fence
-   type. Use two annotators plus adjudication, date-match reference sources,
-   draw building/solar polygons, court/field instances, and fence segments, and
-   measure inter-rater agreement. Keep geographically separate development,
-   calibration, and test sets.
-3. **Attribute-specific extraction - 30 hours.** First segment buildings and
-   the campus mask, then run specialized detectors/segmenters for panels,
-   portables, courts, and fields (for example SAM 2/Grounding DINO/YOLO or a
-   fine-tuned geospatial encoder after licensing and benchmark checks). Use
-   geometry/line evidence for courts and tracks. Treat fencing as a separate
-   perimeter problem using higher-resolution aerial imagery and a legally
-   licensed street-level source where available, not scraped consumer imagery.
-   Send only uncertain or cross-model-disagreement cases to Gemini 3.8 Flash.
-4. **Calibration, operations, and decision policy - 20 hours.** Benchmark the
-   current Lite model, 3.8 Flash, and specialized models on the locked test set;
-   fit per-attribute isotonic/conformal calibration; choose review thresholds
-   from error cost and staff capacity; and test drift by state and NAIP year.
-   Add batched inference, caching, resumable jobs, artifact hashes, data-version
-   manifests, and a reviewer queue (Parquet/PostGIS plus DVC/MLflow or
-   equivalent). Report accuracy, positive recall, MAE, calibration, coverage,
-   latency, cost, and review burden together.
+1. **Hours 1-20: learn and define the task.** Read work on solar mapping,
+   building detection, facility counts, and confidence calibration. Compare
+   imagery sources by date, resolution, license, and API limits. Tighten the
+   label guide and have two people label a small pilot so I can see where humans
+   disagree before treating labels as truth.
+2. **Hours 21-40: build better campus boundaries.** Test school and building
+   polygons from OSM/Overpass or OSMnx, Overture Maps, Microsoft Building
+   Footprints, open parcel data, and school-district GIS layers. Combine them
+   with roads and connected play areas, then show uncertain boundaries in a
+   small QGIS or web-map review tool.
+3. **Hours 41-65: create a meaningful benchmark.** Label 500-1,000 schools
+   across regions, school levels, rural/urban settings, imagery years, and
+   campus complexity. Deliberately include more schools with solar, portables,
+   pools, and different fence types. Use two labelers and resolve disagreements;
+   keep separate schools for method development, confidence adjustment, and a
+   final untouched test.
+4. **Hours 66-90: test methods for each attribute.** Compare the current VLM
+   with building masks and specialized solar, portable, court, field, and track
+   detectors (for example SAM 2, Grounding DINO, or YOLO after license checks).
+   Treat fencing as its own problem using better aerial imagery and a legally
+   usable street-level source. Use a stronger Gemini model only for cases where
+   cheaper methods disagree or remain uncertain.
+5. **Hours 91-100: set review rules and make the pipeline robust.** On the
+   untouched labels, measure what 0.9/0.7/0.4/0.1 actually mean for each field
+   and adjust them with a simple calibration method if enough examples exist.
+   Choose the review cutoff based on how many errors staff need to catch and how
+   much they can review. Add batching, caching, resumable jobs, data versions,
+   and cost/latency monitoring.
 
 ## Time spent and AI use
 
@@ -527,7 +549,7 @@ Approximate elapsed working time was **5 hours 40 minutes**:
 - 60 minutes labeling and manually verifying eight schools, with ChatGPT and
   Claude used as second opinions for unfamiliar aerial features such as
   portable classrooms; uncertain/date-mismatched cases were left blank;
-- 90 minutes adding guardrails and observability, fixing bugs, revising prompts,
+- 90 minutes adding reliability checks and confidence rules, fixing bugs, revising prompts,
   and manually cross-checking failure cases;
 - 60 minutes across model/rate-limit tests, final Codex prompt changes, and the
   final model comparison/rerun; and

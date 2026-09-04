@@ -1,5 +1,4 @@
 school_id,school_name,evaluation_split,sample_role,field,prediction,reference_value,confidence,reason
-061734009378,Cerra Vista Elementary,development,seeded_random,portable_count,0,7,0.9,"The provisional count of 7 comes from current/undated Google aerial imagery rather than the model's 2022 NAIP input, and joined modules cannot be separated confidently; retain as a disclosed stress test, not primary ground truth."
 270543000204,Bertha Secondary,reporting,seeded_random,solar_present,False,True,0.9,"The reference uses newer or undated Google imagery, while the model used 2023 NAIP; retain as a temporal stress test, not image-date ground truth."
 270543000204,Bertha Secondary,reporting,seeded_random,solar_area_m2,0.0,3000.0,0.9,"The reference uses newer or undated Google imagery, while the model used 2023 NAIP; retain as a temporal stress test, not image-date ground truth."
 341560004108,Spring Lake Heights Elementary School,reporting,targeted_solar_challenge,solar_area_m2,5416.9,1800.0,0.4,"Rooftop-solar presence is visible, but 1,800 m2 is a rough visual estimate without a ruler or polygon and is not precise enough for a 25% scoring tolerance."
