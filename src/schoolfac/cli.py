@@ -60,8 +60,8 @@ def _parser() -> argparse.ArgumentParser:
         action="append",
         default=[],
         help=(
-            "School used to tune the method; repeat for multiple IDs so final "
-            "metrics remain separated from the reporting subset"
+            "Tag a school as used for method development; repeat for multiple "
+            "IDs. This separates summary rows but does not filter validation."
         ),
     )
 

@@ -99,8 +99,21 @@ observable, date-compatible labels.
 After labeling, run:
 
 ```bash
-python run.py validate --development-school-id 060001909278 --development-school-id 060483000471 --development-school-id 061734009378
+python run.py validate \
+  --predictions-csv measurements.csv \
+  --development-school-id 060001909278 \
+  --development-school-id 060483000471 \
+  --development-school-id 061734009378
 ```
+
+Check the printed `Using predictions:` path before interpreting the result.
+Use `measurements.csv` for the frozen submission and
+`outputs/measurements.csv` for a fresh Gemini extraction. The `all` row uses
+all nine audited schools; `development` shows the three schools used directly
+while improving the method; `reporting` shows the other six. Do not use the
+three-school development accuracy as the sole result. The eight seeded schools
+are the main reproducible sample, the added solar case is reported separately,
+and the nine-school row describes the complete audit.
 
 The output files answer different questions:
 

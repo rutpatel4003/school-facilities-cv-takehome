@@ -21,7 +21,9 @@ results.
 tables in `outputs/`. No command or API key is required.
 
 **To recalculate the reported validation and scale results:** run only the
-following. Do not create `.env`; this path makes no API calls.
+following from the repository root, the directory containing `run.py` and the
+committed `measurements.csv`. Do not create `.env`; this path makes no API
+calls.
 
 ```bash
 python -m venv .venv
@@ -36,6 +38,14 @@ python run.py validate \
 python run.py summarize --daily-request-limit 500
 python -m pytest -q
 ```
+
+The repeated `--development-school-id` option does **not** limit validation to
+those three schools. It tags them as schools used while improving the method,
+so the output can show them separately. Validation still scores all nine labeled
+schools: three appear under `development`, the other six under `reporting`, and
+the `all` row combines all nine. See
+[`VALIDATION_GUIDE.md`](VALIDATION_GUIDE.md) for the labeling rules, exclusions,
+metrics, and interpretation of these groups.
 
 This path uses the committed `measurements.csv`, `data/campus_review.csv`, and
 `data/validation_labels.csv`. It is deterministic, needs no Gemini key, and
@@ -330,14 +340,14 @@ python run.py extract --provider gemini --school-id SCHOOL_ID
 
 The single-school command replaces that row in both output CSVs while retaining
 the other 24. Repeat for each listed ID, confirm the failure query is empty,
-then run `validate --predictions-csv outputs/measurements.csv` and `summarize`.
-Do not rerun successful schools merely to search for a better score.
+then use the complete validation and scaling commands in Step 6 below. Do not
+rerun successful schools merely to search for a better score.
 
-### 6. Reproduce validation and scaling
+### 6. Validate the new extraction and estimate scale
 
 ```bash
 python run.py validate \
-  --predictions-csv measurements.csv \
+  --predictions-csv outputs/measurements.csv \
   --development-school-id 060001909278 \
   --development-school-id 060483000471 \
   --development-school-id 061734009378
@@ -346,21 +356,17 @@ python run.py summarize --daily-request-limit 500
 python -m pytest -q
 ```
 
-There are two reproducibility paths:
+The path in this command is intentional: `outputs/measurements.csv` is the new
+Gemini extraction created in Step 5. To audit the frozen submitted results
+instead, stop and use the shorter command near the top of this README, which
+selects the committed root `measurements.csv`. Do not mix one run's predictions
+with the other run's diagnostics. A hosted-model rerun reproduces the procedure
+but may produce different answers; production work should pin a dated model
+release where available and preserve raw responses and checksums.
 
-- **Audit the submitted run exactly:** keep the committed `measurements.csv`,
-  `outputs/run_diagnostics.csv`, campus decisions, and validation labels, then
-  run `validate`, `summarize`, and the tests. These deterministic steps
-  reproduce the reported tables without paying for or resampling Gemini.
-  `validate` uses the frozen root `measurements.csv` by default; the explicit
-  option in the command above makes that choice visible.
-- **Repeat the end-to-end experiment:** fetch imagery and run `extract` with
-  the recorded model and prompt version. The data flow and audit fields should
-  reproduce, but individual VLM predictions may differ. Validate that new run
-  with `--predictions-csv outputs/measurements.csv`. Production work should
-  pin a dated model release where available and preserve immutable raw response
-  artifacts/checksums; temperature alone would not guarantee identical hosted
-  inference.
+As above, `--development-school-id` tags the three method-development schools;
+it does not filter out the other six labeled schools. See
+[`VALIDATION_GUIDE.md`](VALIDATION_GUIDE.md) for the full interpretation.
 
 `prepare-validation` recreates the eight seeded rows (three primary, two middle,
 three high). The committed label file contains one additional row that I added
@@ -407,6 +413,31 @@ solar changed after the dated NAIP acquisition, but the Google aerial dates are
 not known precisely enough to satisfy the requirement to name both dates. A
 defensible extension would compare two dated NAIP acquisitions or dated
 historical Street View observations.
+
+### How to read the validation output
+
+First read the `Using predictions:` line. `measurements.csv` means the frozen
+submitted run; `outputs/measurements.csv` means a newly generated Gemini run.
+
+- In **Evaluation overview**, `all` summarizes all nine audited schools,
+  `development` contains the three schools used directly while improving the
+  method, and `reporting` contains the other six. The three development schools
+  are not the only validation set and should not be reported alone: that would
+  discard six labeled schools and emphasize examples already used for tuning.
+  I report the reproducibly selected eight-school sample as the main sample,
+  the added solar challenge separately, and all nine as the full audit. The
+  development/reporting rows disclose how tuning affected the results; neither
+  is presented as an untouched holdout.
+- In **Field summary**, `n` is the number of usable manual comparisons for that
+  attribute and `accuracy` is its exact-match rate. For count fields, `mae` is
+  the average absolute counting error. Positive recall, negative specificity,
+  and zero/nonzero accuracy appear only when the labels contain those cases.
+- In **Calibration**, compare `confidence` with `observed_accuracy`. A positive
+  gap means the model was more confident than its results justified; a negative
+  gap means it was conservative. Smaller absolute gaps are better, but the
+  counts and number of schools show how little evidence supports each rate.
+- `NaN` means that a statistic does not apply or that the audit contains no
+  example needed to calculate it. It does not mean zero accuracy.
 
 ### How validation, confidence, and review flags are calculated
 
