@@ -48,6 +48,14 @@ def _parser() -> argparse.ArgumentParser:
     p = sub.add_parser("validate", help="Compare predictions with manually filled ground truth")
     p.add_argument("--solar-area-tolerance", type=float, default=0.25)
     p.add_argument(
+        "--predictions-csv",
+        type=Path,
+        help=(
+            "Prediction file to evaluate. Use measurements.csv for the frozen "
+            "submission or outputs/measurements.csv for a new Gemini run."
+        ),
+    )
+    p.add_argument(
         "--development-school-id",
         action="append",
         default=[],
@@ -105,7 +113,8 @@ def main() -> None:
             limit=args.limit,
             school_id=args.school_id,
         )
-        print(f"Wrote {settings.outputs_dir / 'measurements.csv'} ({len(df)} rows)")
+        filename = "mock_measurements.csv" if args.provider == "mock" else "measurements.csv"
+        print(f"Wrote {settings.outputs_dir / filename} ({len(df)} rows)")
         return
 
     if args.command == "prepare-validation":
@@ -121,10 +130,15 @@ def main() -> None:
         return
 
     if args.command == "validate":
-        predictions_csv = settings.outputs_dir / "measurements.csv"
-        if not predictions_csv.exists():
+        if args.predictions_csv:
+            predictions_csv = args.predictions_csv
+            if not predictions_csv.is_absolute():
+                predictions_csv = settings.root / predictions_csv
+        else:
             predictions_csv = settings.root / "measurements.csv"
-            print(f"Using frozen submitted predictions: {predictions_csv}")
+            if not predictions_csv.exists():
+                predictions_csv = settings.outputs_dir / "measurements.csv"
+        print(f"Using predictions: {predictions_csv}")
         obs, summary, calibration, overview = evaluate(
             predictions_csv,
             settings.validation_labels_csv,

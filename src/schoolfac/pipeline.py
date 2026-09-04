@@ -449,8 +449,9 @@ def run_extraction(
     measurements = pd.DataFrame(rows, columns=MEASUREMENT_COLUMNS)
     diagnostics = pd.DataFrame(diagnostic_rows)
 
-    measurements_path = settings.outputs_dir / "measurements.csv"
-    diagnostics_path = settings.outputs_dir / "run_diagnostics.csv"
+    prefix = "mock_" if provider == "mock" else ""
+    measurements_path = settings.outputs_dir / f"{prefix}measurements.csv"
+    diagnostics_path = settings.outputs_dir / f"{prefix}run_diagnostics.csv"
     if school_id:
         sid = str(school_id)
 

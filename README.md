@@ -29,6 +29,7 @@ source .venv/bin/activate          # Windows PowerShell: .venv\Scripts\Activate.
 pip install -r requirements.txt
 python run.py check-data
 python run.py validate \
+  --predictions-csv measurements.csv \
   --development-school-id 060001909278 \
   --development-school-id 060483000471 \
   --development-school-id 061734009378
@@ -42,7 +43,7 @@ does not download imagery. Skip `prepare-campus`, `fetch-imagery`, and
 `extract`.
 
 **To rerun the image-to-measurement experiment:** follow the complete workflow
-under [Reproduce from a clean checkout](#reproduce-from-a-clean-checkout). The
+under [Optional: rerun the full pipeline](#optional-rerun-the-full-pipeline). The
 committed campus decisions can still be reused; run `prepare-campus` and the
 HTML reviewer only if you deliberately want to repeat my manual campus-location
 review. A fresh Gemini run reproduces the method but may not produce identical
@@ -203,10 +204,14 @@ the historical NAIP date.
 `-- VALIDATION_GUIDE.md
 ```
 
-## Reproduce from a clean checkout
+## Optional: rerun the full pipeline
 
 Python 3.11 is recommended. Network access is required to retrieve NAIP
 imagery and call Gemini.
+
+This numbered section is for rebuilding the experiment, not for checking the
+committed results. For validation alone, use the short, no-API workflow at the
+top of this README and skip the campus, imagery, mock, and Gemini steps below.
 
 ### 1. Create the environment
 
@@ -289,7 +294,8 @@ python run.py extract --provider mock --limit 1
 ```
 
 The mock provider deliberately returns unmeasurable fields. It tests pipeline
-mechanics, not model accuracy.
+mechanics, not model accuracy, and writes `outputs/mock_measurements.csv` and
+`outputs/mock_run_diagnostics.csv` so it cannot replace the submitted results.
 
 ### 5. Run the final extraction
 
@@ -324,13 +330,14 @@ python run.py extract --provider gemini --school-id SCHOOL_ID
 
 The single-school command replaces that row in both output CSVs while retaining
 the other 24. Repeat for each listed ID, confirm the failure query is empty,
-then rerun `validate` and `summarize`. Do not rerun successful schools merely
-to search for a better score.
+then run `validate --predictions-csv outputs/measurements.csv` and `summarize`.
+Do not rerun successful schools merely to search for a better score.
 
 ### 6. Reproduce validation and scaling
 
 ```bash
 python run.py validate \
+  --predictions-csv measurements.csv \
   --development-school-id 060001909278 \
   --development-school-id 060483000471 \
   --development-school-id 061734009378
@@ -344,12 +351,13 @@ There are two reproducibility paths:
 - **Audit the submitted run exactly:** keep the committed `measurements.csv`,
   `outputs/run_diagnostics.csv`, campus decisions, and validation labels, then
   run `validate`, `summarize`, and the tests. These deterministic steps
-  reproduce the reported tables without paying for or resampling Gemini. On a
-  clean checkout, `validate` automatically uses the frozen root
-  `measurements.csv` because the working `outputs/measurements.csv` is ignored.
+  reproduce the reported tables without paying for or resampling Gemini.
+  `validate` uses the frozen root `measurements.csv` by default; the explicit
+  option in the command above makes that choice visible.
 - **Repeat the end-to-end experiment:** fetch imagery and run `extract` with
   the recorded model and prompt version. The data flow and audit fields should
-  reproduce, but individual VLM predictions may differ. Production work should
+  reproduce, but individual VLM predictions may differ. Validate that new run
+  with `--predictions-csv outputs/measurements.csv`. Production work should
   pin a dated model release where available and preserve immutable raw response
   artifacts/checksums; temperature alone would not guarantee identical hosted
   inference.
