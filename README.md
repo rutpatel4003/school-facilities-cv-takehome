@@ -229,7 +229,7 @@ Open `data/campus_review.html`, inspect the CCD and candidate links, then fill
 `decision` in `data/campus_review.csv` with `ccd`, `candidate`, or `manual`.
 For `manual`, also fill the manual latitude/longitude. The committed file lets
 the main run reproduce my adjudications without pretending they were automated
-or claiming that a square crop is a legal campus boundary.
+or claiming that a square crop is a legal campus boundary. Just use my committed data/campus_review.csv if it gets regenerated (expected due to above code, committed file already filled).
 Public Nominatim is used only to generate one cached candidate per school; it
 is not an appropriate 130,000-school geocoder.
 
