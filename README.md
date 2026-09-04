@@ -212,7 +212,7 @@ is not an appropriate 130,000-school geocoder.
 ### 3. Fetch the dated imagery
 
 ```bash
-python run.py fetch-imagery --limit 2   # optional smoke test
+python run.py fetch-imagery --limit 2   # optional to test if everything is working
 python run.py fetch-imagery
 ```
 
