@@ -1,41 +1,28 @@
-%PDF-1.4
+%PDF-1.3
 %‚„œ”
 1 0 obj
 <<
-/Producer (ReportLab PDF Library \055 \050opensource\051)
-/Author (Rut Patel)
-/CreationDate (D\07220260903211737\05507\04700\047)
-/Creator (\050unspecified\051)
-/Keywords ()
-/ModDate (D\07220260903211737\05507\04700\047)
-/Subject (Method\054 validation\054 calibration\054 limitations\054 and scale)
-/Title (School Facilities CV Take\055Home Memo)
-/Trapped (\057False)
+/Type /Catalog
+/Pages 2 0 R
 >>
 endobj
 2 0 obj
 <<
 /Type /Pages
 /Count 1
-/Kids [ 4 0 R ]
+/Kids [ 3 0 R ]
 >>
 endobj
 3 0 obj
 <<
-/Type /Catalog
-/Pages 2 0 R
->>
-endobj
-4 0 obj
-<<
-/Contents 5 0 R
+/Contents 4 0 R
 /MediaBox [ 0 0 612 792 ]
 /Resources <<
 /Font <<
-/F1 6 0 R
-/F1-0 7 0 R
-/F2 8 0 R
-/F2-0 9 0 R
+/F1 5 0 R
+/F1-0 6 0 R
+/F2 7 0 R
+/F2-0 8 0 R
 >>
 /ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
 >>
@@ -47,63 +34,129 @@ endobj
 /Parent 2 0 R
 >>
 endobj
-5 0 obj
+4 0 obj
 <<
-/Length 14232
+/Length 15326
 >>
 stream
 q
-1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+1 0 0 1 0 0 cm
+BT
+/F1 12 Tf
+14.4 TL
+ET
 q
 0 0 0 RG
-.4 w
-n 27.36 19 m 584.64 19 l S
-BT /F1 6.2 Tf 7.44 TL ET
-BT 1 0 0 1 27.36 10 Tm (School Facilities CV take-home | Final 25-school submission) Tj T* ET
-BT 1 0 0 1 559.1394 10 Tm (Rut Patel) Tj T* ET
+0.4 w
+n
+27.36 19 m
+584.64 19 l
+S
+BT
+/F1 6.2 Tf
+7.44 TL
+ET
+BT
+1 0 0 1 27.36 10 Tm
+(School Facilities CV take\055home \174 Final 25\055school submission) Tj
+T*
+ET
+BT
+1 0 0 1 559.1394 10 Tm
+(Rut Patel) Tj
+T*
+ET
 Q
 q
 1 0 0 1 27.36 746.04 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 1 Tm /F2 14 Tf 15 TL (MEMORANDUM) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+/F2 14 Tf
+15 TL
+(MEMORANDUM) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 46.8 717.24 cm
 q
 0 0 0 rg
-BT /F1 10 Tf 12 TL ET
+BT
+/F1 10 Tf
+12 TL
+ET
 q
 1 0 0 1 6 17 cm
 q
-BT 1 0 0 1 0 1 Tm 7.8 TL /F2 6.8 Tf 0 0 0 rg (TO) Tj /F1 6.8 Tf ( David / School Facilities CV Project) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+7.8 TL
+/F2 6.8 Tf
+0 0 0 rg
+(TO) Tj
+/F1 6.8 Tf
+( David \057 School Facilities CV Project) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 240 17 cm
 q
-BT 1 0 0 1 0 1 Tm 7.8 TL /F2 6.8 Tf 0 0 0 rg (FROM) Tj /F1 6.8 Tf ( Rut Patel) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+7.8 TL
+/F2 6.8 Tf
+0 0 0 rg
+(FROM) Tj
+/F1 6.8 Tf
+( Rut Patel) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 351.6 17 cm
 q
-BT 1 0 0 1 0 1 Tm 7.8 TL /F2 6.8 Tf 0 0 0 rg (DATE) Tj /F1 6.8 Tf ( September 3, 2026) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+7.8 TL
+/F2 6.8 Tf
+0 0 0 rg
+(DATE) Tj
+/F1 6.8 Tf
+( September 3\054 2026) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 6 2 cm
 q
-BT 1 0 0 1 0 1 Tm 7.8 TL /F2 6.8 Tf 0 0 0 rg (SUBJECT) Tj /F1 6.8 Tf ( A review-aware prototype for measuring school facilities from aerial imagery) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+7.8 TL
+/F2 6.8 Tf
+0 0 0 rg
+(SUBJECT) Tj
+/F1 6.8 Tf
+( A review\055aware prototype for measuring school facilities from aerial imagery) Tj
+T*
+ET
 Q
 Q
 q
 1 J
 1 j
 0 0 0 RG
-.6 w
-n 0 0 m 518.4 0 l S
+0.6 w
+n
+0 0 m
+518.4 0 l
+S
 Q
 Q
 Q
@@ -113,66 +166,243 @@ Q
 q
 1 0 0 1 27.36 688.29 cm
 q
-BT 1 0 0 1 0 18.7 Tm 8.65 TL /F2 7.25 Tf 0 0 0 rg (Bottom line.) Tj /F1 7.25 Tf ( On 67 date-matched field comparisons across nine audited schools, the frozen pipeline was correct on 45 \(67.2%\). Its average stated confidence was 70.1%.) Tj T* (The original eight-school seeded sample was 40/59 \(67.8%\); Spring Lake was added openly as a solar-positive challenge and was 5/8. This is a small development audit of) Tj T* (the submitted artifact, not a national accuracy estimate.) Tj T* ET
+BT
+1 0 0 1 0 18.7 Tm
+8.65 TL
+/F2 7.25 Tf
+0 0 0 rg
+(Bottom line\056) Tj
+/F1 7.25 Tf
+( On 67 date\055matched field comparisons across nine audited schools\054 the frozen pipeline was correct on 45 \05067\0562\045\051\056 Its average stated confidence was 70\0561\045\056) Tj
+T*
+(The original eight\055school seeded sample was 40\05759 \05067\0568\045\051\073 Spring Lake was added openly as a solar\055positive challenge and was 5\0578\056 This is a small development audit of) Tj
+T*
+(the submitted run\054 not a national accuracy estimate\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 46.8 619.29 cm
 q
-.909804 .909804 .909804 rg
-n 0 66 518.4 -11 re f*
+0.909804 0.909804 0.909804 rg
+n
+0 66 518.4 -11 re
+f*
 0 0 0 rg
-BT /F2 6.1 Tf 7 TL ET
-BT 1 0 0 1 3 57.9 Tm (Result) Tj T* ET
-BT 1 0 0 1 100.2 57.9 Tm (N) Tj T* ET
-BT 1 0 0 1 125.4 57.9 Tm (Observed outcome) Tj T* ET
-BT 1 0 0 1 237 57.9 Tm (Why it matters) Tj T* ET
-BT 1 0 0 1 3 46.9 Tm (All scored fields) Tj T* ET
-BT /F1 6.1 Tf 7 TL ET
-BT 1 0 0 1 100.2 46.9 Tm (67) Tj T* ET
-BT 1 0 0 1 125.4 46.9 Tm (45 correct \(67.2%\)) Tj T* ET
-BT 1 0 0 1 237 46.9 Tm (Exact field-level score) Tj T* ET
-BT /F2 6.1 Tf 7 TL ET
-BT 1 0 0 1 3 35.9 Tm (Confidence 0.9) Tj T* ET
-BT /F1 6.1 Tf 7 TL ET
-BT 1 0 0 1 100.2 35.9 Tm (32) Tj T* ET
-BT 1 0 0 1 125.4 35.9 Tm (30 correct \(93.8%\)) Tj T* ET
-BT 1 0 0 1 237 35.9 Tm (Mostly matches its promise) Tj T* ET
-BT /F2 6.1 Tf 7 TL ET
-BT 1 0 0 1 3 24.9 Tm (Confidence 0.7) Tj T* ET
-BT /F1 6.1 Tf 7 TL ET
-BT 1 0 0 1 100.2 24.9 Tm (22) Tj T* ET
-BT 1 0 0 1 125.4 24.9 Tm (15 correct \(68.2%\)) Tj T* ET
-BT 1 0 0 1 237 24.9 Tm (Matches its promise closely) Tj T* ET
-BT /F2 6.1 Tf 7 TL ET
-BT 1 0 0 1 3 13.9 Tm (Confidence 0.4/0.1) Tj T* ET
-BT /F1 6.1 Tf 7 TL ET
-BT 1 0 0 1 100.2 13.9 Tm (13) Tj T* ET
-BT 1 0 0 1 125.4 13.9 Tm (0 correct) Tj T* ET
-BT 1 0 0 1 237 13.9 Tm (Correctly identifies highest risk) Tj T* ET
-BT /F2 6.1 Tf 7 TL ET
-BT 1 0 0 1 3 2.9 Tm (Review confidence <= 0.7) Tj T* ET
-BT /F1 6.1 Tf 7 TL ET
-BT 1 0 0 1 100.2 2.9 Tm (35) Tj T* ET
-BT 1 0 0 1 125.4 2.9 Tm (20/22 errors found) Tj T* ET
-BT 1 0 0 1 237 2.9 Tm (Leaves 30/32 automatic fields correct) Tj T* ET
+BT
+/F2 6.1 Tf
+7 TL
+ET
+BT
+1 0 0 1 3 57.9 Tm
+(Result) Tj
+T*
+ET
+BT
+1 0 0 1 100.2 57.9 Tm
+(N) Tj
+T*
+ET
+BT
+1 0 0 1 125.4 57.9 Tm
+(Observed outcome) Tj
+T*
+ET
+BT
+1 0 0 1 237 57.9 Tm
+(Why it matters) Tj
+T*
+ET
+BT
+1 0 0 1 3 46.9 Tm
+(All scored fields) Tj
+T*
+ET
+BT
+/F1 6.1 Tf
+7 TL
+ET
+BT
+1 0 0 1 100.2 46.9 Tm
+(67) Tj
+T*
+ET
+BT
+1 0 0 1 125.4 46.9 Tm
+(45 correct \05067\0562\045\051) Tj
+T*
+ET
+BT
+1 0 0 1 237 46.9 Tm
+(Exact field\055level score) Tj
+T*
+ET
+BT
+/F2 6.1 Tf
+7 TL
+ET
+BT
+1 0 0 1 3 35.9 Tm
+(Confidence 0\0569) Tj
+T*
+ET
+BT
+/F1 6.1 Tf
+7 TL
+ET
+BT
+1 0 0 1 100.2 35.9 Tm
+(32) Tj
+T*
+ET
+BT
+1 0 0 1 125.4 35.9 Tm
+(30 correct \05093\0568\045\051) Tj
+T*
+ET
+BT
+1 0 0 1 237 35.9 Tm
+(Mostly matches its promise) Tj
+T*
+ET
+BT
+/F2 6.1 Tf
+7 TL
+ET
+BT
+1 0 0 1 3 24.9 Tm
+(Confidence 0\0567) Tj
+T*
+ET
+BT
+/F1 6.1 Tf
+7 TL
+ET
+BT
+1 0 0 1 100.2 24.9 Tm
+(22) Tj
+T*
+ET
+BT
+1 0 0 1 125.4 24.9 Tm
+(15 correct \05068\0562\045\051) Tj
+T*
+ET
+BT
+1 0 0 1 237 24.9 Tm
+(Matches its promise closely) Tj
+T*
+ET
+BT
+/F2 6.1 Tf
+7 TL
+ET
+BT
+1 0 0 1 3 13.9 Tm
+(Confidence 0\0564\0570\0561) Tj
+T*
+ET
+BT
+/F1 6.1 Tf
+7 TL
+ET
+BT
+1 0 0 1 100.2 13.9 Tm
+(13) Tj
+T*
+ET
+BT
+1 0 0 1 125.4 13.9 Tm
+(0 correct) Tj
+T*
+ET
+BT
+1 0 0 1 237 13.9 Tm
+(Correctly identifies highest risk) Tj
+T*
+ET
+BT
+/F2 6.1 Tf
+7 TL
+ET
+BT
+1 0 0 1 3 2.9 Tm
+(Review confidence \074\075 0\0567) Tj
+T*
+ET
+BT
+/F1 6.1 Tf
+7 TL
+ET
+BT
+1 0 0 1 100.2 2.9 Tm
+(35) Tj
+T*
+ET
+BT
+1 0 0 1 125.4 2.9 Tm
+(20\05722 errors found) Tj
+T*
+ET
+BT
+1 0 0 1 237 2.9 Tm
+(Leaves 30\05732 automatic fields correct) Tj
+T*
+ET
 q
 1 J
 1 j
-.466667 .466667 .466667 RG
-.35 w
-n 0 66 m 518.4 66 l S
-n 0 0 m 518.4 0 l S
-n 0 0 m 0 66 l S
-n 518.4 0 m 518.4 66 l S
-n 0 55 m 518.4 55 l S
-n 0 44 m 518.4 44 l S
-n 0 33 m 518.4 33 l S
-n 0 22 m 518.4 22 l S
-n 0 11 m 518.4 11 l S
-n 97.2 0 m 97.2 66 l S
-n 122.4 0 m 122.4 66 l S
-n 234 0 m 234 66 l S
+0.466667 0.466667 0.466667 RG
+0.35 w
+n
+0 66 m
+518.4 66 l
+S
+n
+0 0 m
+518.4 0 l
+S
+n
+0 0 m
+0 66 l
+S
+n
+518.4 0 m
+518.4 66 l
+S
+n
+0 55 m
+518.4 55 l
+S
+n
+0 44 m
+518.4 44 l
+S
+n
+0 33 m
+518.4 33 l
+S
+n
+0 22 m
+518.4 22 l
+S
+n
+0 11 m
+518.4 11 l
+S
+n
+97.2 0 m
+97.2 66 l
+S
+n
+122.4 0 m
+122.4 66 l
+S
+n
+234 0 m
+234 66 l
+S
 Q
 Q
 Q
@@ -180,223 +410,595 @@ q
 1 0 0 1 27.36 589.64 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 1 Tm /F2 9 Tf 10 TL (APPROACH) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+/F2 9 Tf
+10 TL
+(APPROACH) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 561.69 cm
 q
-BT 1 0 0 1 0 18.7 Tm 8.65 TL /F2 7.25 Tf 0 0 0 rg (1. Confirm the campus.) Tj /F1 7.25 Tf ( I compared each supplied CCD point with one Nominatim) Tj T* (candidate, opened the map links for all 25 schools, kept 24 CCD centers, and) Tj T* (corrected one.) Tj T* ET
+BT
+1 0 0 1 0 18.7 Tm
+8.65 TL
+/F2 7.25 Tf
+0 0 0 rg
+(1\056 Confirm the campus\056) Tj
+/F1 7.25 Tf
+( I compared each supplied CCD point with one Nominatim) Tj
+T*
+(candidate\054 opened the map links for all 25 schools\054 kept 24 CCD centers\054 and) Tj
+T*
+(corrected one\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 541.39 cm
 q
-BT 1 0 0 1 0 10.05 Tm 8.65 TL /F2 7.25 Tf 0 0 0 rg (2. Use dated imagery.) Tj /F1 7.25 Tf ( I downloaded NAIP through Microsoft Planetary Computer) Tj T* (and saved the date, source item, crop, pixel scale, and coverage.) Tj T* ET
+BT
+1 0 0 1 0 10.05 Tm
+8.65 TL
+/F2 7.25 Tf
+0 0 0 rg
+(2\056 Use dated imagery\056) Tj
+/F1 7.25 Tf
+( I downloaded NAIP through Microsoft Planetary Computer) Tj
+T*
+(and saved the date\054 source item\054 crop\054 pixel scale\054 and coverage\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 521.09 cm
 q
-BT 1 0 0 1 0 10.05 Tm 8.65 TL /F2 7.25 Tf 0 0 0 rg (3. Show context and detail.) Tj /F1 7.25 Tf ( One Gemini request receives the full campus, a) Tj T* (centered close-up, and four overlapping sections.) Tj T* ET
+BT
+1 0 0 1 0 10.05 Tm
+8.65 TL
+/F2 7.25 Tf
+0 0 0 rg
+(3\056 Show context and detail\056) Tj
+/F1 7.25 Tf
+( One Gemini request receives the full campus\054 a) Tj
+T*
+(centered close\055up\054 and four overlapping sections\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 492.14 cm
 q
-BT 1 0 0 1 0 18.7 Tm -0.07855 Tw 8.65 TL /F2 7.25 Tf 0 0 0 rg (4. Require structured evidence.) Tj /F1 7.25 Tf ( The prompt separates rooftop solar from carports) Tj T* 0 Tw (and detached portables from permanent buildings. Code converts solar image) Tj T* (boxes to area using the saved pixel scale.) Tj T* ET
+BT
+1 0 0 1 0 18.7 Tm
+-0.07855 Tw
+8.65 TL
+/F2 7.25 Tf
+0 0 0 rg
+(4\056 Require structured evidence\056) Tj
+/F1 7.25 Tf
+( The prompt separates rooftop solar from carports) Tj
+T*
+0 Tw
+(and detached portables from permanent buildings\056 Code converts solar image) Tj
+T*
+(boxes to area using the saved pixel scale\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 471.84 cm
 q
-BT 1 0 0 1 0 10.05 Tm 8.65 TL /F2 7.25 Tf 0 0 0 rg (5. Lower confidence when evidence is weak.) Tj /F1 7.25 Tf ( Missing edges, unclear ownership,) Tj T* (poor visibility, stale imagery, or conflicting answers trigger review.) Tj T* ET
+BT
+1 0 0 1 0 10.05 Tm
+8.65 TL
+/F2 7.25 Tf
+0 0 0 rg
+(5\056 Lower confidence when evidence is weak\056) Tj
+/F1 7.25 Tf
+( Missing edges\054 unclear ownership\054) Tj
+T*
+(poor visibility\054 stale imagery\054 or conflicting answers trigger review\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 458.84 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 1 Tm /F2 9 Tf 10 TL (VALIDATION METHOD) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+/F2 9 Tf
+10 TL
+(VALIDATION METHOD) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 430.89 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 18.7 Tm /F1 7.25 Tf 8.65 TL (A fixed seed selected eight schools by level \(3 primary, 2 middle, 3 high\). I saved) Tj T* (predictions before labeling. Three helped improve the method; I later inspected the) Tj T* (other five while comparing models, so I do not call them an untouched test.) Tj T* ET
+BT
+1 0 0 1 0 18.7 Tm
+/F1 7.25 Tf
+8.65 TL
+(A fixed seed selected eight schools by level \0503 primary\054 2 middle\054 3 high\051\056 I saved) Tj
+T*
+(predictions before labeling\056 Three helped improve the method\073 I later inspected the) Tj
+T*
+(other five while comparing models\054 so I do not call them an untouched test\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 401.94 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 18.7 Tm /F1 7.25 Tf 8.65 TL (I added Spring Lake after seeing rooftop solar so the audit contained one positive) Tj T* (solar case. I made the final manual decisions and used ChatGPT/Claude only as) Tj T* (second opinions for unfamiliar features. Unresolved fields were left blank.) Tj T* ET
+BT
+1 0 0 1 0 18.7 Tm
+/F1 7.25 Tf
+8.65 TL
+(I added Spring Lake after seeing rooftop solar so the audit contained one positive) Tj
+T*
+(solar case\056 I made the final manual decisions and used ChatGPT\057Claude only as) Tj
+T*
+(second opinions for unfamiliar features\056 Unresolved fields were left blank\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 372.99 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 18.7 Tm /F1 7.25 Tf 8.65 TL (Categories and counts require an exact match. Solar area would pass within 25%) Tj T* (of a reliable manual measurement. Five date-mismatched or imprecise solar) Tj T* (references remain visible but are not scored.) Tj T* ET
+BT
+1 0 0 1 0 18.7 Tm
+/F1 7.25 Tf
+8.65 TL
+(Categories and counts require an exact match\056 Solar area would pass within 25\045) Tj
+T*
+(of a reliable manual measurement\056 Five date\055mismatched or imprecise solar) Tj
+T*
+(references remain visible but are not scored\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 335.39 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 27.35 Tm /F1 7.25 Tf 8.65 TL (Cerra Vista's seven portable buildings are visible in the same 2022 NAIP image:) Tj T* (five at the north edge and two near the center. Low contrast makes the gaps hard) Tj T* (to see, but the label is scored. The model's zero count at 0.9 confidence is a real) Tj T* (miss.) Tj T* ET
+BT
+1 0 0 1 0 27.35 Tm
+/F1 7.25 Tf
+8.65 TL
+(Cerra Vista\047s seven portable buildings are visible in the same 2022 NAIP image\072) Tj
+T*
+(five at the north edge and two near the center\056 Low contrast makes the gaps hard) Tj
+T*
+(to see\054 but the label is scored\056 The model\047s zero count at 0\0569 confidence is a real) Tj
+T*
+(miss\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 322.39 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 1 Tm /F2 9 Tf 10 TL (WHAT CONFIDENCE AND FLAGS SAY) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+/F2 9 Tf
+10 TL
+(WHAT CONFIDENCE AND FLAGS SAY) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 285.79 cm
 q
-BT 1 0 0 1 0 27.35 Tm 8.65 TL /F1 7.25 Tf 0 0 0 rg (The practical question is: ) Tj /F2 7.25 Tf (when the model is wrong, does it ask for help?) Tj /F1 7.25 Tf ( The) Tj T* (0.9, 0.7, 0.4, and 0.1 groups were compared with their actual success rates. They) Tj T* (rank risk well, but Cerra and one track answer show that the high group is not) Tj T* (perfect.) Tj T* ET
+BT
+1 0 0 1 0 27.35 Tm
+8.65 TL
+/F1 7.25 Tf
+0 0 0 rg
+(The practical question is\072 ) Tj
+/F2 7.25 Tf
+(when the model is wrong\054 does it ask for help\077) Tj
+/F1 7.25 Tf
+( The) Tj
+T*
+(0\0569\054 0\0567\054 0\0564\054 and 0\0561 groups were compared with their actual success rates\056 They) Tj
+T*
+(rank risk well\054 but Cerra and one track answer show that the high group is not) Tj
+T*
+(perfect\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 248.19 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 27.35 Tm /F1 7.25 Tf 8.65 TL (The average confidence-to-accuracy gap across bands is 6.6 percentage points) Tj T* (\(ECE\). The Brier score is 0.113; it gives a larger penalty to confident mistakes. I) Tj T* (report both because the overall 70.1% confidence versus 67.2% accuracy can hide) Tj T* (a bad individual band.) Tj T* ET
+BT
+1 0 0 1 0 27.35 Tm
+/F1 7.25 Tf
+8.65 TL
+(ECE is the weighted average absolute gap within confidence bands\056 It is 6\0566) Tj
+T*
+(percentage points\056 The Brier score is 0\056113 and penalizes confident mistakes\056 I) Tj
+T*
+(report both because the overall 70\0561\045 confidence versus 67\0562\045 accuracy can hide) Tj
+T*
+(a bad individual band\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 219.24 cm
 q
-BT 1 0 0 1 0 18.7 Tm 8.65 TL /F1 7.25 Tf 0 0 0 rg (Reviewing only 0.4/0.1 checks 13/67 fields and finds 13/22 errors. Reviewing <) Tj (=) Tj T* (0.7 checks 35/67 and finds 20/22; the 32 fields left automatic are 30/32 correct.) Tj T* (These are same-audit trade-offs, not deployment guarantees.) Tj T* ET
+BT
+1 0 0 1 0 18.7 Tm
+8.65 TL
+/F1 7.25 Tf
+0 0 0 rg
+(Reviewing only 0\0564\0570\0561 checks 13\05767 fields and finds 13\05722 errors\056 Reviewing \074) Tj
+(\075) Tj
+T*
+(0\0567 checks 35\05767 and finds 20\05722\073 the 32 fields left automatic are 30\05732 correct\056) Tj
+T*
+(These are same\055audit trade\055offs\054 not deployment guarantees\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 206.24 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 1 Tm /F2 9 Tf 10 TL (MAIN FAILURES) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+/F2 9 Tf
+10 TL
+(MAIN FAILURES) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 178.29 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 18.7 Tm /F1 7.25 Tf 8.65 TL (Fencing caused 13/22 errors. Thin lines, trees, shadows, incomplete Street View,) Tj T* (and uncertain campus edges also make manual fence labels imperfect. Houses,) Tj T* (hedges, and roads are boundaries, not fences.) Tj T* ET
+BT
+1 0 0 1 0 18.7 Tm
+/F1 7.25 Tf
+8.65 TL
+(Fencing caused 13\05722 errors\056 Thin lines\054 trees\054 shadows\054 incomplete Street View\054) Tj
+T*
+(and uncertain campus edges also make manual fence labels imperfect\056 Houses\054) Tj
+T*
+(hedges\054 and roads are boundaries\054 not fences\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 27.36 132.04 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 36 Tm /F1 7.25 Tf 8.65 TL (Portable detection missed Cerra Vista's only positive case. Solar presence was 7/7) Tj T* (on date-compatible labels, but only one was positive. Solar area remains) Tj T* -0.000886 Tw (approximate and capped at low confidence. NAIP dates vary; Ridgeview uses 2017) Tj T* 0 Tw (imagery. Hosted runs also produced 503/429 errors, variable latency, and) Tj T* (occasional invalid responses.) Tj T* ET
+BT
+1 0 0 1 0 36 Tm
+/F1 7.25 Tf
+8.65 TL
+(Portable detection missed Cerra Vista\047s only positive case\056 Solar presence was 7\0577) Tj
+T*
+(on date\055matched labels\054 but only one was positive\056 Solar area is approximate and) Tj
+T*
+-0.000886 Tw
+(kept at low confidence\056 I did not complete the optional two\055date measure because) Tj
+T*
+0 Tw
+(the Google dates were unknown\056 Ridgeview uses 2017 NAIP\056 Hosted runs had) Tj
+T*
+(503\057429 errors\054 output variation\054 variable latency\054 and invalid responses\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 589.64 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 1 Tm /F2 9 Tf 10 TL (HOW I WOULD SPEND 100 HOURS) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+/F2 9 Tf
+10 TL
+(HOW I WOULD SPEND 100 HOURS) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 561.69 cm
 q
-BT 1 0 0 1 0 18.7 Tm 8.65 TL /F2 7.25 Tf 0 0 0 rg (Hours 1-20 - learn and define.) Tj /F1 7.25 Tf ( Read work on solar mapping, building detection,) Tj T* (facility counts, and confidence; compare imagery dates, resolution, licenses, and) Tj T* (APIs; tighten the label guide; double-label a pilot to learn where people disagree.) Tj T* ET
+BT
+1 0 0 1 0 18.7 Tm
+8.65 TL
+/F2 7.25 Tf
+0 0 0 rg
+(Hours 1\05520 \055 learn and define\056) Tj
+/F1 7.25 Tf
+( Read work on solar mapping\054 building detection\054) Tj
+T*
+(facility counts\054 and confidence\073 compare imagery dates\054 resolution\054 licenses\054 and) Tj
+T*
+(APIs\073 tighten the label guide\073 double\055label a pilot to learn where people disagree\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 532.74 cm
 q
-BT 1 0 0 1 0 18.7 Tm 8.65 TL /F2 7.25 Tf 0 0 0 rg (Hours 21-40 - better campus boundaries.) Tj /F1 7.25 Tf ( Test OSM/Overture buildings and land) Tj T* (use, roads, open parcels, Microsoft Building Footprints, and district GIS layers.) Tj T* (Review uncertain polygons in QGIS or a small web map.) Tj T* ET
+BT
+1 0 0 1 0 18.7 Tm
+8.65 TL
+/F2 7.25 Tf
+0 0 0 rg
+(Hours 21\05540 \055 better campus boundaries\056) Tj
+/F1 7.25 Tf
+( Test OSM\057Overture buildings and land) Tj
+T*
+(use\054 roads\054 open parcels\054 Microsoft Building Footprints\054 and district GIS layers\056) Tj
+T*
+(Review uncertain polygons in QGIS or a small web map\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 495.14 cm
 q
-BT 1 0 0 1 0 27.35 Tm 8.65 TL /F2 7.25 Tf 0 0 0 rg (Hours 41-65 - a real benchmark.) Tj /F1 7.25 Tf ( Label 500-1,000 schools across geography,) Tj T* (level, rurality, image age, and complexity. Include more solar, portables, pools, and) Tj T* (fence types; use two labelers; keep separate development, confidence-adjustment,) Tj T* (and untouched test schools.) Tj T* ET
+BT
+1 0 0 1 0 27.35 Tm
+8.65 TL
+/F2 7.25 Tf
+0 0 0 rg
+(Hours 41\05565 \055 a real benchmark\056) Tj
+/F1 7.25 Tf
+( Label 500\0551\054000 schools across geography\054) Tj
+T*
+(level\054 rurality\054 image age\054 and complexity\056 Include more solar\054 portables\054 pools\054 and) Tj
+T*
+(fence types\073 use two labelers\073 keep separate development\054 confidence\055adjustment\054) Tj
+T*
+(and untouched test schools\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 457.54 cm
 q
-BT 1 0 0 1 0 27.35 Tm 8.65 TL /F2 7.25 Tf 0 0 0 rg (Hours 66-90 - methods by attribute.) Tj /F1 7.25 Tf ( Compare the VLM with building masks and) Tj T* (specialized solar, portable, court, field, and track detectors \(for example SAM 2,) Tj T* (Grounding DINO, or YOLO after license checks\). Treat fences separately with) Tj T* (better aerial and legally usable street-level imagery.) Tj T* ET
+BT
+1 0 0 1 0 27.35 Tm
+8.65 TL
+/F2 7.25 Tf
+0 0 0 rg
+(Hours 66\05590 \055 methods by attribute\056) Tj
+/F1 7.25 Tf
+( Compare the VLM with building masks and) Tj
+T*
+(specialized solar\054 portable\054 court\054 field\054 and track detectors \050for example SAM 2\054) Tj
+T*
+(Grounding DINO\054 or YOLO after license checks\051\056 Treat fences separately with) Tj
+T*
+(better aerial and legally usable street\055level imagery\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 419.94 cm
 q
-BT 1 0 0 1 0 27.35 Tm 8.65 TL /F2 7.25 Tf 0 0 0 rg (Hours 91-100 - review rules and operations.) Tj /F1 7.25 Tf ( Measure what each confidence) Tj T* (level means on untouched labels, set the review cutoff from staff capacity and error) Tj T* (cost, and add batching, caching, resumable jobs, data versions, latency, and cost) Tj T* (monitoring.) Tj T* ET
+BT
+1 0 0 1 0 27.35 Tm
+8.65 TL
+/F2 7.25 Tf
+0 0 0 rg
+(Hours 91\055100 \055 review rules and operations\056) Tj
+/F1 7.25 Tf
+( Measure what each confidence) Tj
+T*
+(level means on untouched labels\054 set the review cutoff from staff capacity and error) Tj
+T*
+(cost\054 and add batching\054 caching\054 resumable jobs\054 data versions\054 latency\054 and cost) Tj
+T*
+(monitoring\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 406.94 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 1 Tm /F2 9 Tf 10 TL (SCALE, COST, AND API ACCESS) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+/F2 9 Tf
+10 TL
+(SCALE\054 COST\054 AND API ACCESS) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 353.04 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 44.65 Tm /F1 7.25 Tf 8.65 TL (The final run used a median 8.76 seconds and about 8,125 input plus 432 output) Tj T* (tokens per school. At the observed load, 130,000 schools cost about $348 with 3.1) Tj T* (Flash-Lite standard or $174 in batch. The completed 3.5 test gained only 1/58) Tj T* (correct fields, was slower, had slightly worse calibration, and implies about $5,404) Tj T* (standard. A 3.8 estimate is about $1,000 at the 3.1 token load, but repeated 503s) Tj T* (prevent an accuracy claim.) Tj T* ET
+BT
+1 0 0 1 0 44.65 Tm
+/F1 7.25 Tf
+8.65 TL
+(The final run used a median 8\05676 seconds and about 8\054125 input plus 432 output) Tj
+T*
+(tokens per school\056 At the observed load\054 130\054000 schools cost about \044348 with 3\0561) Tj
+T*
+(Flash\055Lite standard or \044174 in batch\056 The completed 3\0565 test gained only 1\05758) Tj
+T*
+(correct fields\054 was slower\054 had slightly worse calibration\054 and implies about \0445\054404) Tj
+T*
+(standard\056 A 3\0568 estimate is about \0441\054000 at the 3\0561 token load\054 but repeated 503s) Tj
+T*
+(prevent an accuracy claim\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 315.44 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 27.35 Tm /F1 7.25 Tf 8.65 TL (A free-tier Gemini API key is sufficient for the 25-school assignment run. I used a) Tj T* (personal Google AI Studio account because institutional Workspace access can be) Tj T* (administrator-controlled. My observed 500 requests/day limit would take at least) Tj T* (260 days for 130,000 schools before retries, so free tier is not a scaling plan.) Tj T* ET
+BT
+1 0 0 1 0 27.35 Tm
+/F1 7.25 Tf
+8.65 TL
+(A free\055tier Gemini API key is sufficient for the 25\055school assignment run\056 I used a) Tj
+T*
+(personal Google AI Studio account because institutional Workspace access can be) Tj
+T*
+(administrator\055controlled\056 My observed 500 requests\057day limit would take at least) Tj
+T*
+(260 days for 130\054000 schools before retries\054 so free tier is not a scaling plan\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 302.44 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 1 Tm /F2 9 Tf 10 TL (TIME AND AUTHORSHIP) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+/F2 9 Tf
+10 TL
+(TIME AND AUTHORSHIP) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 265.84 cm
 q
-BT 1 0 0 1 0 27.35 Tm 8.65 TL /F1 7.25 Tf 0 0 0 rg (Approximate time: 20 min understanding; 50 min approach and initial code; 30 min) Tj T* (campus review; 60 min labeling the original eight; 90 min reliability checks, prompt) Tj T* -0.034042 Tw (changes, fixes, and review; 60 min model/final tests including the added solar case;) Tj T* 0 Tw (30 min memo and packaging. ) Tj /F2 7.25 Tf (Total: 5 h 40 min.) Tj T* ET
+BT
+1 0 0 1 0 27.35 Tm
+8.65 TL
+/F1 7.25 Tf
+0 0 0 rg
+(Approximate time\072 20 min understanding\073 50 min approach and initial code\073 30 min) Tj
+T*
+(campus review\073 60 min labeling the original eight\073 90 min reliability checks\054 prompt) Tj
+T*
+-0.034042 Tw
+(changes\054 fixes\054 and review\073 60 min model\057final tests including the added solar case\073) Tj
+T*
+0 Tw
+(30 min memo and packaging\056 ) Tj
+/F2 7.25 Tf
+(Total\072 5 h 40 min\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 210.94 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 44.65 Tm /F1 7.25 Tf 8.65 TL (I knowingly used the extra 40 minutes to learn unfamiliar aerial features, resolve) Tj T* (labels, and investigate failures rather than rerun for a better-looking score.) Tj T* (ChatGPT helped with initial design/code and visual second opinions; Claude with) Tj T* (visual second opinions; Codex with code review, testing, prompt revisions, and) Tj T* -0.040125 Tw (packaging. I reviewed every change and remain responsible for definitions, campus) Tj T* 0 Tw (decisions, labels, experiments, and reporting.) Tj T* ET
+BT
+1 0 0 1 0 44.65 Tm
+/F1 7.25 Tf
+8.65 TL
+(I knowingly used the extra 40 minutes to learn unfamiliar aerial features\054 resolve) Tj
+T*
+(labels\054 and investigate failures rather than rerun for a better\055looking score\056) Tj
+T*
+(ChatGPT helped with initial design\057code and visual second opinions\073 Claude with) Tj
+T*
+(visual second opinions\073 Codex with code review\054 testing\054 prompt revisions\054 and) Tj
+T*
+-0.040125 Tw
+(packaging\056 I reviewed every change and remain responsible for definitions\054 campus) Tj
+T*
+0 Tw
+(decisions\054 labels\054 experiments\054 and reporting\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 197.94 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 1 Tm /F2 9 Tf 10 TL (DATA, MODEL, SOFTWARE, AND SOURCES) Tj T* ET
+BT
+1 0 0 1 0 1 Tm
+/F2 9 Tf
+10 TL
+(DATA\054 MODEL\054 SOFTWARE\054 AND SOURCES) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 161.34 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 27.35 Tm /F1 7.25 Tf 8.65 TL (CCD supplied starting coordinates; NAIP came from Microsoft Planetary Computer;) Tj T* (Nominatim supplied cached candidates; Google Maps/Street View supported) Tj T* (manual validation only; Gemini 3.1 Flash-Lite performed extraction. Python,) Tj T* (pandas, rasterio, pyproj, Pillow, Pydantic, and pytest support the pipeline.) Tj T* ET
+BT
+1 0 0 1 0 27.35 Tm
+/F1 7.25 Tf
+8.65 TL
+(CCD supplied starting coordinates\073 NAIP came from Microsoft Planetary Computer\073) Tj
+T*
+(Nominatim supplied cached candidates\073 Google Maps\057Street View supported) Tj
+T*
+(manual validation only\073 Gemini 3\0561 Flash\055Lite performed extraction\056 Python\054) Tj
+T*
+(pandas\054 rasterio\054 pyproj\054 Pillow\054 Pydantic\054 and pytest support the pipeline\056) Tj
+T*
+ET
 Q
 Q
 q
 1 0 0 1 317.48 135.99 cm
 q
-BT 1 0 0 1 0 16 Tm 7.45 TL /F1 6.35 Tf 0 0 0 rg ([1] planetarycomputer.microsoft.com/dataset/naip   [2]) Tj T* (operations.osmfoundation.org/policies/nominatim/   [3] docs.overturemaps.org/   [4]) Tj T* (ai.google.dev/gemini-api/docs/get-started and /pricing) Tj T* ET
+BT
+1 0 0 1 0 16 Tm
+7.45 TL
+/F1 6.35 Tf
+0 0 0 rg
+(\1331\135 planetarycomputer\056microsoft\056com\057dataset\057naip   \1332\135) Tj
+T*
+(operations\056osmfoundation\056org\057policies\057nominatim\057   \1333\135 docs\056overturemaps\056org\057   \1334\135) Tj
+T*
+(ai\056google\056dev\057gemini\055api\057docs\057get\055started and \057pricing) Tj
+T*
+ET
 Q
 Q
- 
-
 Q
-
 q
 0.0 0.0 612 792 re
 W
@@ -436,8 +1038,16 @@ T*
 ET
 Q
 
-
 endstream
+endobj
+5 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
 endobj
 6 0 obj
 <<
@@ -450,9 +1060,9 @@ endobj
 endobj
 7 0 obj
 <<
-/BaseFont /Helvetica
+/BaseFont /Helvetica-Bold
 /Encoding /WinAnsiEncoding
-/Name /F1
+/Name /F2
 /Subtype /Type1
 /Type /Font
 >>
@@ -468,31 +1078,35 @@ endobj
 endobj
 9 0 obj
 <<
-/BaseFont /Helvetica-Bold
-/Encoding /WinAnsiEncoding
-/Name /F2
-/Subtype /Type1
-/Type /Font
+/Producer (ReportLab PDF Library \055 \050opensource\051)
+/Author (Rut Patel)
+/CreationDate (D\07220260903211737\05507\04700\047)
+/Creator (\050unspecified\051)
+/Keywords ()
+/ModDate (D\07220260903211737\05507\04700\047)
+/Subject (Method\054 validation\054 calibration\054 limitations\054 and scale)
+/Title (School Facilities CV Take\055Home Memo)
+/Trapped (\057False)
 >>
 endobj
 xref
 0 10
 0000000000 65535 f 
 0000000015 00000 n 
-0000000405 00000 n 
-0000000464 00000 n 
-0000000513 00000 n 
-0000000758 00000 n 
-0000015043 00000 n 
-0000015150 00000 n 
-0000015257 00000 n 
-0000015369 00000 n 
+0000000064 00000 n 
+0000000123 00000 n 
+0000000368 00000 n 
+0000015747 00000 n 
+0000015854 00000 n 
+0000015961 00000 n 
+0000016073 00000 n 
+0000016185 00000 n 
 trailer
 <<
 /Size 10
-/Root 3 0 R
-/Info 1 0 R
+/Root 1 0 R
+/Info 9 0 R
 >>
 startxref
-15481
+16575
 %%EOF
