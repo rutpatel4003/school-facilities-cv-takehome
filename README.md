@@ -10,6 +10,44 @@ manual labels.
 
 Recommended GitHub repository name: `school-facilities-cv-takehome`.
 
+## Start here: choose what you want to reproduce
+
+The final measurements, reviewed campus locations, manual validation labels,
+and reported validation tables are already committed. A reviewer does **not**
+need to repeat the campus review or call Gemini just to verify my reported
+results.
+
+**To inspect the submission:** open `measurements.csv`, `memo.pdf`, and the
+tables in `outputs/`. No command or API key is required.
+
+**To recalculate the reported validation and scale results:** run only the
+following. Do not create `.env`; this path makes no API calls.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate          # Windows PowerShell: .venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python run.py check-data
+python run.py validate \
+  --development-school-id 060001909278 \
+  --development-school-id 060483000471 \
+  --development-school-id 061734009378
+python run.py summarize --daily-request-limit 500
+python -m pytest -q
+```
+
+This path uses the committed `measurements.csv`, `data/campus_review.csv`, and
+`data/validation_labels.csv`. It is deterministic, needs no Gemini key, and
+does not download imagery. Skip `prepare-campus`, `fetch-imagery`, and
+`extract`.
+
+**To rerun the image-to-measurement experiment:** follow the complete workflow
+under [Reproduce from a clean checkout](#reproduce-from-a-clean-checkout). The
+committed campus decisions can still be reused; run `prepare-campus` and the
+HTML reviewer only if you deliberately want to repeat my manual campus-location
+review. A fresh Gemini run reproduces the method but may not produce identical
+answers, so the committed outputs remain the record of the submitted run.
+
 ## Submission files
 
 - [`measurements.csv`](measurements.csv): final 25-school deliverable.
